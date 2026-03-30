@@ -46,6 +46,8 @@ const WEDDING_CONFIG = {
   }
 };
 
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
 interface RSVPData {
   name: string;
   email: string;
@@ -297,7 +299,7 @@ function App() {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/hero-wedding.jpg)' }}
+          style={{ backgroundImage: `url(${publicAsset('hero-wedding.jpg')})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
         
@@ -348,7 +350,7 @@ function App() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <img 
-                src="/couple-sunset.jpg" 
+                src={publicAsset('couple-sunset.jpg')} 
                 alt="Couple" 
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
@@ -448,27 +450,27 @@ function App() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div 
               className="aspect-square rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              onClick={() => setSelectedPhoto({ id: 'default1', url: '/wedding-venue.jpg', name: 'Wedding Venue' })}
+              onClick={() => setSelectedPhoto({ id: 'default1', url: publicAsset('wedding-venue.jpg'), name: 'Wedding Venue' })}
             >
-              <img src="/wedding-venue.jpg" alt="Venue" className="w-full h-full object-cover" />
+              <img src={publicAsset('wedding-venue.jpg')} alt="Venue" className="w-full h-full object-cover" />
             </div>
             <div 
               className="aspect-square rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              onClick={() => setSelectedPhoto({ id: 'default2', url: '/wedding-flowers.jpg', name: 'Wedding Flowers' })}
+              onClick={() => setSelectedPhoto({ id: 'default2', url: publicAsset('wedding-flowers.jpg'), name: 'Wedding Flowers' })}
             >
-              <img src="/wedding-flowers.jpg" alt="Flowers" className="w-full h-full object-cover" />
+              <img src={publicAsset('wedding-flowers.jpg')} alt="Flowers" className="w-full h-full object-cover" />
             </div>
             <div 
               className="aspect-square rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              onClick={() => setSelectedPhoto({ id: 'default3', url: '/hero-wedding.jpg', name: 'Wedding Rings' })}
+              onClick={() => setSelectedPhoto({ id: 'default3', url: publicAsset('hero-wedding.jpg'), name: 'Wedding Rings' })}
             >
-              <img src="/hero-wedding.jpg" alt="Rings" className="w-full h-full object-cover" />
+              <img src={publicAsset('hero-wedding.jpg')} alt="Rings" className="w-full h-full object-cover" />
             </div>
             <div 
               className="aspect-square rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              onClick={() => setSelectedPhoto({ id: 'default4', url: '/couple-sunset.jpg', name: 'Couple' })}
+              onClick={() => setSelectedPhoto({ id: 'default4', url: publicAsset('couple-sunset.jpg'), name: 'Couple' })}
             >
-              <img src="/couple-sunset.jpg" alt="Couple" className="w-full h-full object-cover" />
+              <img src={publicAsset('couple-sunset.jpg')} alt="Couple" className="w-full h-full object-cover" />
             </div>
           </div>
 
