@@ -208,11 +208,11 @@ function App() {
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       // Uncomment for actual Google Sheets integration:
-      // await fetch(WEDDING_CONFIG.googleSheetsUrl, {
-      //   method: 'POST',
-      //   body: formData,
-      //   mode: 'no-cors'
-      // });
+      await fetch(WEDDING_CONFIG.googleSheetsUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
 
       // Send confirmation email
       const emailSent = await sendConfirmationEmail(rsvpData);
