@@ -37,7 +37,7 @@ const WEDDING_CONFIG = {
   // Wedding date for countdown (YYYY, MM-1, DD, HH, MM)
   weddingDate: new Date(2026, 11, 12, 16, 0), // December 12, 2026 at 4:00 PM
   // Google Sheets Web App URL - Replace with your own after deployment
-  googleSheetsUrl: 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec',
+  googleSheetsUrl: 'https://script.google.com/macros/s/AKfycbxJNYRGmQHMXXzu2gAODAalAeh8WwnRYPUN2o4iZM6bwWxOK48D2-K2-OeLWy3mvtEUzw/exec',
   // EmailJS Configuration - Replace with your own after setup
   emailjs: {
     serviceId: 'YOUR_SERVICE_ID',      // e.g., 'service_abc123'
