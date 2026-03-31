@@ -5,7 +5,8 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Wedding3/',
+  // Use a relative base so the site works on Vercel and other static hosts.
+  base: './',
   plugins: [inspectAttr(), react()],
   resolve: {
     alias: {
