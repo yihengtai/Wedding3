@@ -37,14 +37,16 @@ const WEDDING_CONFIG = {
   // Wedding date for countdown (YYYY, MM-1, DD, HH, MM)
   weddingDate: new Date(2026, 11, 12, 16, 0), // December 12, 2026 at 4:00 PM
   // Google Sheets Web App URL - Replace with your own after deployment
-  googleSheetsUrl: 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec',
+  googleSheetsUrl: 'https://script.google.com/macros/s/AKfycbxJNYRGmQHMXXzu2gAODAalAeh8WwnRYPUN2o4iZM6bwWxOK48D2-K2-OeLWy3mvtEUzw/exec',
   // EmailJS Configuration - Replace with your own after setup
   emailjs: {
-    serviceId: 'YOUR_SERVICE_ID',      // e.g., 'service_abc123'
-    templateId: 'YOUR_TEMPLATE_ID',    // e.g., 'template_xyz789'
-    publicKey: 'YOUR_PUBLIC_KEY',      // e.g., 'user_123abc'
+    serviceId: 'service_2oxqvts',      // e.g., 'service_abc123'
+    templateId: 'template_prwfnrp',    // e.g., 'template_xyz789'
+    publicKey: 'zOech7IZ7gPgfjaTH',      // e.g., 'user_123abc'
   }
 };
+
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 
 interface RSVPData {
   name: string;
@@ -206,11 +208,11 @@ function App() {
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       // Uncomment for actual Google Sheets integration:
-      // await fetch(WEDDING_CONFIG.googleSheetsUrl, {
-      //   method: 'POST',
-      //   body: formData,
-      //   mode: 'no-cors'
-      // });
+      await fetch(WEDDING_CONFIG.googleSheetsUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
 
       // Send confirmation email
       const emailSent = await sendConfirmationEmail(rsvpData);
@@ -297,7 +299,7 @@ function App() {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/hero-wedding.jpg)' }}
+          style={{ backgroundImage: `url(${publicAsset('hero-wedding.jpg')})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
         
@@ -348,7 +350,7 @@ function App() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <img 
-                src="/couple-sunset.jpg" 
+                src={publicAsset('couple-sunset.jpg')} 
                 alt="Couple" 
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
@@ -448,27 +450,27 @@ function App() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div 
               className="aspect-square rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              onClick={() => setSelectedPhoto({ id: 'default1', url: '/wedding-venue.jpg', name: 'Wedding Venue' })}
+              onClick={() => setSelectedPhoto({ id: 'default1', url: publicAsset('wedding-venue.jpg'), name: 'Wedding Venue' })}
             >
-              <img src="/wedding-venue.jpg" alt="Venue" className="w-full h-full object-cover" />
+              <img src={publicAsset('wedding-venue.jpg')} alt="Venue" className="w-full h-full object-cover" />
             </div>
             <div 
               className="aspect-square rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              onClick={() => setSelectedPhoto({ id: 'default2', url: '/wedding-flowers.jpg', name: 'Wedding Flowers' })}
+              onClick={() => setSelectedPhoto({ id: 'default2', url: publicAsset('wedding-flowers.jpg'), name: 'Wedding Flowers' })}
             >
-              <img src="/wedding-flowers.jpg" alt="Flowers" className="w-full h-full object-cover" />
+              <img src={publicAsset('wedding-flowers.jpg')} alt="Flowers" className="w-full h-full object-cover" />
             </div>
             <div 
               className="aspect-square rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              onClick={() => setSelectedPhoto({ id: 'default3', url: '/hero-wedding.jpg', name: 'Wedding Rings' })}
+              onClick={() => setSelectedPhoto({ id: 'default3', url: publicAsset('hero-wedding.jpg'), name: 'Wedding Rings' })}
             >
-              <img src="/hero-wedding.jpg" alt="Rings" className="w-full h-full object-cover" />
+              <img src={publicAsset('hero-wedding.jpg')} alt="Rings" className="w-full h-full object-cover" />
             </div>
             <div 
               className="aspect-square rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              onClick={() => setSelectedPhoto({ id: 'default4', url: '/couple-sunset.jpg', name: 'Couple' })}
+              onClick={() => setSelectedPhoto({ id: 'default4', url: publicAsset('couple-sunset.jpg'), name: 'Couple' })}
             >
-              <img src="/couple-sunset.jpg" alt="Couple" className="w-full h-full object-cover" />
+              <img src={publicAsset('couple-sunset.jpg')} alt="Couple" className="w-full h-full object-cover" />
             </div>
           </div>
 
@@ -661,12 +663,12 @@ function App() {
 
           {/* Setup Links */}
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button 
+            {/* <button 
               onClick={() => setShowInstructions(true)}
               className="text-rose-500 text-sm hover:underline"
             >
               How to connect RSVP to Google Sheets →
-            </button>
+            </button> */}
             <button 
               onClick={() => setShowEmailInstructions(true)}
               className="text-rose-500 text-sm hover:underline flex items-center gap-1"
