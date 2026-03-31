@@ -40,9 +40,9 @@ const WEDDING_CONFIG = {
   googleSheetsUrl: 'https://script.google.com/macros/s/AKfycbxJNYRGmQHMXXzu2gAODAalAeh8WwnRYPUN2o4iZM6bwWxOK48D2-K2-OeLWy3mvtEUzw/exec',
   // EmailJS Configuration - Replace with your own after setup
   emailjs: {
-    serviceId: 'YOUR_SERVICE_ID',      // e.g., 'service_abc123'
-    templateId: 'YOUR_TEMPLATE_ID',    // e.g., 'template_xyz789'
-    publicKey: 'YOUR_PUBLIC_KEY',      // e.g., 'user_123abc'
+    serviceId: 'service_2oxqvts',      // e.g., 'service_abc123'
+    templateId: 'template_prwfnrp',    // e.g., 'template_xyz789'
+    publicKey: 'zOech7IZ7gPgfjaTH',      // e.g., 'user_123abc'
   }
 };
 
@@ -663,12 +663,12 @@ function App() {
 
           {/* Setup Links */}
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button 
+            {/* <button 
               onClick={() => setShowInstructions(true)}
               className="text-rose-500 text-sm hover:underline"
             >
               How to connect RSVP to Google Sheets →
-            </button>
+            </button> */}
             <button 
               onClick={() => setShowEmailInstructions(true)}
               className="text-rose-500 text-sm hover:underline flex items-center gap-1"
